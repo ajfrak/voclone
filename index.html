@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -62,6 +61,46 @@
         100% { transform: translateX(100%); }
       }
 
+      @keyframes slideLeft {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-100%); }
+      }
+
+      @keyframes morphShape {
+        0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+        25% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+        50% { border-radius: 20% 60% 40% 70% / 60% 40% 80% 20%; }
+        75% { border-radius: 70% 30% 60% 40% / 40% 70% 30% 60%; }
+      }
+
+      @keyframes glow {
+        0%, 100% { box-shadow: 0 0 20px rgba(20, 184, 166, 0.3); }
+        50% { box-shadow: 0 0 40px rgba(20, 184, 166, 0.6); }
+      }
+
+      @keyframes bounceIn {
+        0% { transform: scale(0.3); opacity: 0; }
+        50% { transform: scale(1.05); }
+        70% { transform: scale(0.9); }
+        100% { transform: scale(1); opacity: 1; }
+      }
+
+      @keyframes wiggle {
+        0%, 7% { transform: rotateZ(0); }
+        15% { transform: rotateZ(-15deg); }
+        20% { transform: rotateZ(10deg); }
+        25% { transform: rotateZ(-10deg); }
+        30% { transform: rotateZ(6deg); }
+        35% { transform: rotateZ(-4deg); }
+        40%, 100% { transform: rotateZ(0); }
+      }
+
+      @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+      }
+
       /* Navigation */
       .navbar {
         position: fixed;
@@ -93,17 +132,20 @@
         display: flex;
         align-items: center;
         transition: all 0.3s ease;
+        animation: pulse 2s ease-in-out infinite;
       }
 
       .logo:hover {
         transform: scale(1.05);
+        animation: wiggle 1s ease-in-out;
       }
 
       .logo img {
-        height: 60px;
+        height: 80px;
         width: auto;
         object-fit: contain;
         transition: all 0.3s ease;
+        filter: drop-shadow(0 4px 15px rgba(20, 184, 166, 0.2));
       }
 
       .nav-links {
@@ -135,6 +177,7 @@
         transform: scale(0.8);
         transition: all 0.3s ease;
         z-index: -1;
+        animation: morphShape 4s ease-in-out infinite;
       }
 
       .nav-links a:hover::before {
@@ -145,6 +188,7 @@
       .nav-links a:hover {
         color: #14b8a6;
         transform: translateY(-2px);
+        animation: bounceIn 0.5s ease;
       }
 
       /* Hero Section */
@@ -165,9 +209,10 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1920&h=1080&fit=crop&crop=center') center/cover;
-        filter: brightness(0.1) blur(1px);
+        background: url('/lovable-uploads/8855d031-66d6-4648-9dc0-07e68c80e830.png') center/cover;
+        filter: brightness(0.7) blur(0.5px);
         z-index: -1;
+        animation: pulse 10s ease-in-out infinite;
       }
 
       .hero-content {
@@ -195,6 +240,7 @@
         color: #475569;
         animation: slideInFromLeft 1s ease-out 0.5s both;
         line-height: 1.6;
+        text-shadow: 0 2px 10px rgba(255, 255, 255, 0.8);
       }
 
       .cta-buttons {
@@ -219,12 +265,14 @@
         overflow: hidden;
         text-transform: uppercase;
         letter-spacing: 1px;
+        animation: float 3s ease-in-out infinite;
       }
 
       .btn-primary {
         background: linear-gradient(135deg, #14b8a6, #06b6d4);
         color: white;
         box-shadow: 0 10px 30px rgba(20, 184, 166, 0.3);
+        animation-delay: 0s;
       }
 
       .btn-secondary {
@@ -232,6 +280,7 @@
         color: #14b8a6;
         border: 2px solid #14b8a6;
         box-shadow: 0 5px 20px rgba(20, 184, 166, 0.2);
+        animation-delay: 0.5s;
       }
 
       .btn::before {
@@ -252,11 +301,75 @@
       .btn:hover {
         transform: translateY(-3px) scale(1.02);
         box-shadow: 0 15px 35px rgba(20, 184, 166, 0.4);
+        animation: glow 2s ease-in-out infinite;
       }
 
       .btn-secondary:hover {
         background: linear-gradient(135deg, #14b8a6, #06b6d4);
         color: white;
+      }
+
+      /* Clients Section */
+      .clients {
+        padding: 4rem 0;
+        background: linear-gradient(135deg, #ffffff 0%, #f0fdfa 100%);
+        overflow: hidden;
+        position: relative;
+      }
+
+      .clients::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><defs><pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="%2314b8a6" opacity="0.1"/></pattern></defs><rect width="100" height="20" fill="url(%23dots)"/></svg>');
+        z-index: 0;
+      }
+
+      .clients-slider {
+        display: flex;
+        animation: slideLeft 20s linear infinite;
+        gap: 4rem;
+        align-items: center;
+      }
+
+      .client-logo {
+        min-width: 150px;
+        height: 80px;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(20, 184, 166, 0.1);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        animation: float 3s ease-in-out infinite;
+      }
+
+      .client-logo:hover {
+        transform: scale(1.1);
+        box-shadow: 0 10px 30px rgba(20, 184, 166, 0.2);
+        animation: bounceIn 0.5s ease;
+      }
+
+      .client-logo::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(20, 184, 166, 0.1), transparent);
+        transition: left 0.5s ease;
+      }
+
+      .client-logo:hover::before {
+        left: 100%;
       }
 
       /* Services Section */
@@ -282,6 +395,7 @@
         background: linear-gradient(135deg, #14b8a6, #06b6d4);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
+        animation: gradientShift 3s ease-in-out infinite;
       }
 
       .services-grid {
@@ -313,6 +427,7 @@
         opacity: 0;
         transition: opacity 0.3s ease;
         z-index: -1;
+        animation: morphShape 6s ease-in-out infinite;
       }
 
       .service-card:hover::before {
@@ -322,6 +437,7 @@
       .service-card:hover {
         transform: translateY(-10px);
         box-shadow: 0 20px 40px rgba(20, 184, 166, 0.15);
+        animation: glow 2s ease-in-out infinite;
       }
 
       .service-icon {
@@ -336,6 +452,7 @@
         font-size: 2rem;
         position: relative;
         overflow: hidden;
+        animation: float 3s ease-in-out infinite;
       }
 
       .service-icon::after {
@@ -354,11 +471,13 @@
         margin-bottom: 1rem;
         color: #14b8a6;
         font-weight: 700;
+        animation: fadeInUp 0.5s ease-out 0.2s both;
       }
 
       .service-card p {
         color: #64748b;
         line-height: 1.6;
+        animation: fadeInUp 0.5s ease-out 0.4s both;
       }
 
       /* Products Section */
@@ -399,6 +518,7 @@
         opacity: 0;
         transition: opacity 0.3s ease;
         z-index: -1;
+        animation: morphShape 8s ease-in-out infinite;
       }
 
       .product-card:hover::before {
@@ -406,8 +526,9 @@
       }
 
       .product-card:hover {
-        transform: scale(1.05);
+        transform: scale(1.05) rotate(1deg);
         box-shadow: 0 15px 30px rgba(20, 184, 166, 0.2);
+        animation: glow 2s ease-in-out infinite;
       }
 
       .product-image {
@@ -419,6 +540,7 @@
         position: relative;
         box-shadow: 0 10px 30px rgba(20, 184, 166, 0.15);
         transition: all 0.3s ease;
+        animation: float 4s ease-in-out infinite;
       }
 
       .product-image img {
@@ -426,6 +548,10 @@
         height: 100%;
         object-fit: cover;
         transition: transform 0.3s ease;
+      }
+
+      .product-card:hover .product-image {
+        animation: wiggle 1s ease-in-out;
       }
 
       .product-card:hover .product-image img {
@@ -437,6 +563,7 @@
         font-weight: 700;
         color: #2c3e50;
         margin-bottom: 0.5rem;
+        animation: fadeInUp 0.5s ease-out 0.2s both;
       }
 
       /* Features Section */
@@ -462,6 +589,7 @@
         transition: all 0.3s ease;
         position: relative;
         overflow: hidden;
+        animation: fadeInUp 0.8s ease-out;
       }
 
       .feature-card::before {
@@ -475,6 +603,7 @@
         opacity: 0;
         transition: opacity 0.3s ease;
         z-index: -1;
+        animation: morphShape 7s ease-in-out infinite reverse;
       }
 
       .feature-card:hover::before {
@@ -482,8 +611,9 @@
       }
 
       .feature-card:hover {
-        transform: translateX(10px);
+        transform: translateX(10px) rotate(-1deg);
         box-shadow: 0 15px 30px rgba(20, 184, 166, 0.15);
+        animation: glow 2s ease-in-out infinite;
       }
 
       .feature-title {
@@ -491,11 +621,13 @@
         font-weight: 800;
         margin-bottom: 1rem;
         font-size: 1.4rem;
+        animation: bounceIn 0.8s ease-out;
       }
 
       .feature-card p {
         color: #64748b;
         line-height: 1.7;
+        animation: fadeInUp 0.5s ease-out 0.3s both;
       }
 
       /* Contact Section */
@@ -514,6 +646,7 @@
         border: 1px solid rgba(20, 184, 166, 0.15);
         position: relative;
         z-index: 1;
+        animation: bounceIn 1s ease-out;
       }
 
       .contact-info {
@@ -529,12 +662,14 @@
         border-radius: 15px;
         transition: all 0.3s ease;
         border: 1px solid rgba(20, 184, 166, 0.1);
+        animation: fadeInUp 0.8s ease-out;
       }
 
       .contact-item:hover {
         background: rgba(20, 184, 166, 0.05);
-        transform: translateY(-5px);
+        transform: translateY(-5px) scale(1.02);
         box-shadow: 0 10px 25px rgba(20, 184, 166, 0.1);
+        animation: glow 2s ease-in-out infinite;
       }
 
       .contact-item h3 {
@@ -542,6 +677,106 @@
         font-weight: 700;
         margin-bottom: 1rem;
         font-size: 1.2rem;
+        animation: bounceIn 0.5s ease-out 0.2s both;
+      }
+
+      /* Admin Panel */
+      .admin-panel {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.8);
+        z-index: 10000;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        animation: fadeInUp 0.5s ease-out;
+      }
+
+      .admin-panel.active {
+        display: flex;
+      }
+
+      .admin-content {
+        background: white;
+        border-radius: 20px;
+        padding: 3rem;
+        max-width: 800px;
+        width: 90%;
+        max-height: 80vh;
+        overflow-y: auto;
+        animation: bounceIn 0.8s ease-out;
+      }
+
+      .admin-login, .admin-dashboard {
+        text-align: center;
+      }
+
+      .admin-login input, .product-form input, .product-form textarea {
+        width: 100%;
+        padding: 1rem;
+        margin: 0.5rem 0;
+        border: 2px solid #e2e8f0;
+        border-radius: 10px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+      }
+
+      .admin-login input:focus, .product-form input:focus, .product-form textarea:focus {
+        border-color: #14b8a6;
+        outline: none;
+        box-shadow: 0 0 15px rgba(20, 184, 166, 0.2);
+      }
+
+      .admin-btn {
+        background: linear-gradient(135deg, #14b8a6, #06b6d4);
+        color: white;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 10px;
+        font-weight: 600;
+        cursor: pointer;
+        margin: 0.5rem;
+        transition: all 0.3s ease;
+        animation: float 3s ease-in-out infinite;
+      }
+
+      .admin-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(20, 184, 166, 0.3);
+        animation: glow 2s ease-in-out infinite;
+      }
+
+      .product-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      .product-admin-card {
+        border: 2px solid #e2e8f0;
+        border-radius: 10px;
+        padding: 1rem;
+        text-align: center;
+        transition: all 0.3s ease;
+        animation: fadeInUp 0.5s ease-out;
+      }
+
+      .product-admin-card:hover {
+        border-color: #14b8a6;
+        transform: scale(1.05);
+        box-shadow: 0 5px 15px rgba(20, 184, 166, 0.2);
+      }
+
+      .product-admin-card img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-bottom: 0.5rem;
       }
 
       /* Floating Buttons */
@@ -583,12 +818,20 @@
         animation-delay: 0.5s;
       }
 
+      .admin-btn-float {
+        background: linear-gradient(135deg, #6366f1, #8b5cf6);
+        color: white;
+        animation-delay: 1s;
+        font-size: 1.5rem;
+      }
+
       .floating-btn:hover {
         transform: scale(1.1);
         box-shadow: 0 15px 35px rgba(37, 211, 102, 0.3);
+        animation: glow 2s ease-in-out infinite;
       }
 
-      .call-btn:hover {
+      .call-btn:hover, .admin-btn-float:hover {
         box-shadow: 0 15px 35px rgba(20, 184, 166, 0.3);
       }
 
@@ -639,7 +882,16 @@
         }
 
         .logo img {
-          height: 50px;
+          height: 60px;
+        }
+
+        .clients-slider {
+          gap: 2rem;
+        }
+
+        .client-logo {
+          min-width: 120px;
+          height: 60px;
         }
       }
     </style>
@@ -670,6 +922,51 @@
         <div class="cta-buttons">
           <a href="#contact" class="btn btn-primary">Get Quote Now</a>
           <a href="#services" class="btn btn-secondary">Explore Services</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section class="clients">
+      <div class="container">
+        <h2 class="section-title animate-on-scroll">Our Trusted Clients</h2>
+        <div class="clients-slider">
+          <div class="client-logo">
+            <span style="font-weight: 700; color: #14b8a6;">Client 1</span>
+          </div>
+          <div class="client-logo">
+            <span style="font-weight: 700; color: #14b8a6;">Client 2</span>
+          </div>
+          <div class="client-logo">
+            <span style="font-weight: 700; color: #14b8a6;">Client 3</span>
+          </div>
+          <div class="client-logo">
+            <span style="font-weight: 700; color: #14b8a6;">Client 4</span>
+          </div>
+          <div class="client-logo">
+            <span style="font-weight: 700; color: #14b8a6;">Client 5</span>
+          </div>
+          <div class="client-logo">
+            <span style="font-weight: 700; color: #14b8a6;">Client 6</span>
+          </div>
+          <div class="client-logo">
+            <span style="font-weight: 700; color: #14b8a6;">Client 1</span>
+          </div>
+          <div class="client-logo">
+            <span style="font-weight: 700; color: #14b8a6;">Client 2</span>
+          </div>
+          <div class="client-logo">
+            <span style="font-weight: 700; color: #14b8a6;">Client 3</span>
+          </div>
+          <div class="client-logo">
+            <span style="font-weight: 700; color: #14b8a6;">Client 4</span>
+          </div>
+          <div class="client-logo">
+            <span style="font-weight: 700; color: #14b8a6;">Client 5</span>
+          </div>
+          <div class="client-logo">
+            <span style="font-weight: 700; color: #14b8a6;">Client 6</span>
+          </div>
         </div>
       </div>
     </section>
@@ -717,59 +1014,45 @@
     <section class="products" id="products">
       <div class="container">
         <h2 class="section-title animate-on-scroll">Our Product Portfolio</h2>
-        <div class="products-grid">
+        <div class="products-grid" id="productsGrid">
           <div class="product-card animate-on-scroll">
             <div class="product-image">
-              <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=200&h=200&fit=crop&crop=center" alt="T-Shirts" />
-            </div>
-            <h3>T-Shirts & Apparel</h3>
-            <p>Premium quality clothing for corporate branding</p>
-          </div>
-          <div class="product-card animate-on-scroll">
-            <div class="product-image">
-              <img src="https://images.unsplash.com/photo-1514228742587-6b1558fcf93a?w=200&h=200&fit=crop&crop=center" alt="Mugs" />
-            </div>
-            <h3>Mugs & Drinkware</h3>
-            <p>Stylish mugs and bottles for daily use</p>
-          </div>
-          <div class="product-card animate-on-scroll">
-            <div class="product-image">
-              <img src="https://images.unsplash.com/photo-1588087254788-575e5d4f27e6?w=200&h=200&fit=crop&crop=center" alt="Caps" />
+              <img src="/lovable-uploads/4389d245-9d59-4d19-bbb8-023b366e4384.png" alt="Caps & Headwear" />
             </div>
             <h3>Caps & Headwear</h3>
-            <p>Professional headwear for brand visibility</p>
+            <p>Premium quality caps for corporate branding</p>
           </div>
           <div class="product-card animate-on-scroll">
             <div class="product-image">
-              <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200&h=200&fit=crop&crop=center" alt="Keychains" />
+              <img src="/lovable-uploads/90eaa6f8-3cfe-4410-b7f0-e295880e73cc.png" alt="Mugs & Drinkware" />
             </div>
-            <h3>Keychains</h3>
-            <p>Durable and attractive promotional keychains</p>
+            <h3>Mugs & Drinkware</h3>
+            <p>Custom printed mugs for daily use</p>
           </div>
           <div class="product-card animate-on-scroll">
             <div class="product-image">
-              <img src="https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=200&h=200&fit=crop&crop=center" alt="Pens" />
+              <img src="/lovable-uploads/0b6413e8-a74e-4286-b95e-e0f78aea2f72.png" alt="Pens & Stationery" />
             </div>
             <h3>Pens & Stationery</h3>
-            <p>High-quality writing instruments and office supplies</p>
+            <p>High-quality writing instruments for professionals</p>
           </div>
           <div class="product-card animate-on-scroll">
             <div class="product-image">
-              <img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?w=200&h=200&fit=crop&crop=center" alt="Trophies" />
+              <img src="/lovable-uploads/7baf62bd-ff6d-4f73-9e27-15a8524dedbf.png" alt="Keychains" />
+            </div>
+            <h3>Keychains</h3>
+            <p>Elegant keychains for promotional giveaways</p>
+          </div>
+          <div class="product-card animate-on-scroll">
+            <div class="product-image">
+              <img src="/lovable-uploads/dfa09b8c-3d30-4960-b876-9e93395c6ae7.png" alt="Trophies & Awards" />
             </div>
             <h3>Trophies & Awards</h3>
             <p>Prestigious awards for recognition and achievements</p>
           </div>
           <div class="product-card animate-on-scroll">
             <div class="product-image">
-              <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=200&h=200&fit=crop&crop=center" alt="Bags" />
-            </div>
-            <h3>Bags & Accessories</h3>
-            <p>Functional and stylish promotional bags</p>
-          </div>
-          <div class="product-card animate-on-scroll">
-            <div class="product-image">
-              <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=200&h=200&fit=crop&crop=center" alt="Calendars" />
+              <img src="/lovable-uploads/6ec7f70d-b1f9-4965-b3ab-1b0f1522cc3f.png" alt="Calendars & Planners" />
             </div>
             <h3>Calendars & Planners</h3>
             <p>Custom calendars for year-round brand exposure</p>
@@ -839,6 +1122,39 @@
       </div>
     </section>
 
+    <!-- Admin Panel -->
+    <div class="admin-panel" id="adminPanel">
+      <div class="admin-content">
+        <div class="admin-login" id="adminLogin">
+          <h2 style="color: #14b8a6; margin-bottom: 2rem;">Admin Login</h2>
+          <input type="password" id="adminPassword" placeholder="Enter Password" />
+          <br>
+          <button class="admin-btn" onclick="login()">Login</button>
+          <button class="admin-btn" onclick="closeAdmin()" style="background: #ef4444;">Cancel</button>
+        </div>
+        
+        <div class="admin-dashboard" id="adminDashboard" style="display: none;">
+          <h2 style="color: #14b8a6; margin-bottom: 2rem;">Product Management</h2>
+          
+          <div class="product-form">
+            <h3>Add/Edit Product</h3>
+            <input type="text" id="productName" placeholder="Product Name" />
+            <input type="text" id="productDescription" placeholder="Product Description" />
+            <input type="file" id="productImage" accept="image/*" />
+            <br>
+            <button class="admin-btn" onclick="saveProduct()">Save Product</button>
+            <button class="admin-btn" onclick="cancelEdit()" style="background: #6b7280;">Cancel</button>
+          </div>
+          
+          <div class="product-list" id="productList">
+            <!-- Products will be loaded here -->
+          </div>
+          
+          <button class="admin-btn" onclick="logout()" style="background: #ef4444; margin-top: 2rem;">Logout</button>
+        </div>
+      </div>
+    </div>
+
     <!-- Floating Buttons -->
     <div class="floating-buttons">
       <a href="https://wa.me/971509796809" class="floating-btn whatsapp-btn" target="_blank" title="Chat on WhatsApp">
@@ -847,6 +1163,9 @@
       <a href="tel:+971509796809" class="floating-btn call-btn" title="Call Us Now">
         📞
       </a>
+      <button class="floating-btn admin-btn-float" onclick="openAdmin()" title="Admin Panel">
+        ⚙️
+      </button>
     </div>
 
     <script type="module" src="/src/main.tsx"></script>
@@ -913,6 +1232,169 @@
       floatingButtons.forEach((btn, index) => {
         btn.style.animationDelay = (index * 0.2) + 's';
       });
+
+      // Admin Panel Functionality
+      let currentEditingIndex = -1;
+      let products = [
+        {
+          name: "Caps & Headwear",
+          description: "Premium quality caps for corporate branding",
+          image: "/lovable-uploads/4389d245-9d59-4d19-bbb8-023b366e4384.png"
+        },
+        {
+          name: "Mugs & Drinkware", 
+          description: "Custom printed mugs for daily use",
+          image: "/lovable-uploads/90eaa6f8-3cfe-4410-b7f0-e295880e73cc.png"
+        },
+        {
+          name: "Pens & Stationery",
+          description: "High-quality writing instruments for professionals", 
+          image: "/lovable-uploads/0b6413e8-a74e-4286-b95e-e0f78aea2f72.png"
+        },
+        {
+          name: "Keychains",
+          description: "Elegant keychains for promotional giveaways",
+          image: "/lovable-uploads/7baf62bd-ff6d-4f73-9e27-15a8524dedbf.png"
+        },
+        {
+          name: "Trophies & Awards",
+          description: "Prestigious awards for recognition and achievements",
+          image: "/lovable-uploads/dfa09b8c-3d30-4960-b876-9e93395c6ae7.png"
+        },
+        {
+          name: "Calendars & Planners",
+          description: "Custom calendars for year-round brand exposure",
+          image: "/lovable-uploads/6ec7f70d-b1f9-4965-b3ab-1b0f1522cc3f.png"
+        }
+      ];
+
+      function openAdmin() {
+        document.getElementById('adminPanel').classList.add('active');
+      }
+
+      function closeAdmin() {
+        document.getElementById('adminPanel').classList.remove('active');
+        document.getElementById('adminLogin').style.display = 'block';
+        document.getElementById('adminDashboard').style.display = 'none';
+        document.getElementById('adminPassword').value = '';
+      }
+
+      function login() {
+        const password = document.getElementById('adminPassword').value;
+        if (password === 'United@2025') {
+          document.getElementById('adminLogin').style.display = 'none';
+          document.getElementById('adminDashboard').style.display = 'block';
+          loadProducts();
+        } else {
+          alert('Invalid password!');
+        }
+      }
+
+      function logout() {
+        closeAdmin();
+      }
+
+      function loadProducts() {
+        const productList = document.getElementById('productList');
+        productList.innerHTML = products.map((product, index) => `
+          <div class="product-admin-card">
+            <img src="${product.image}" alt="${product.name}" />
+            <h4>${product.name}</h4>
+            <p>${product.description}</p>
+            <button class="admin-btn" onclick="editProduct(${index})">Edit</button>
+            <button class="admin-btn" onclick="deleteProduct(${index})" style="background: #ef4444;">Delete</button>
+          </div>
+        `).join('');
+      }
+
+      function editProduct(index) {
+        currentEditingIndex = index;
+        const product = products[index];
+        document.getElementById('productName').value = product.name;
+        document.getElementById('productDescription').value = product.description;
+      }
+
+      function deleteProduct(index) {
+        if (confirm('Are you sure you want to delete this product?')) {
+          products.splice(index, 1);
+          loadProducts();
+          updateProductGrid();
+        }
+      }
+
+      function saveProduct() {
+        const name = document.getElementById('productName').value;
+        const description = document.getElementById('productDescription').value;
+        const imageFile = document.getElementById('productImage').files[0];
+
+        if (!name || !description) {
+          alert('Please fill in all fields');
+          return;
+        }
+
+        if (currentEditingIndex >= 0) {
+          // Editing existing product
+          products[currentEditingIndex].name = name;
+          products[currentEditingIndex].description = description;
+          
+          if (imageFile) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+              products[currentEditingIndex].image = e.target.result;
+              finishSave();
+            };
+            reader.readAsDataURL(imageFile);
+          } else {
+            finishSave();
+          }
+        } else {
+          // Adding new product
+          if (!imageFile) {
+            alert('Please select an image');
+            return;
+          }
+          
+          const reader = new FileReader();
+          reader.onload = function(e) {
+            products.push({
+              name: name,
+              description: description,
+              image: e.target.result
+            });
+            finishSave();
+          };
+          reader.readAsDataURL(imageFile);
+        }
+      }
+
+      function finishSave() {
+        cancelEdit();
+        loadProducts();
+        updateProductGrid();
+      }
+
+      function cancelEdit() {
+        currentEditingIndex = -1;
+        document.getElementById('productName').value = '';
+        document.getElementById('productDescription').value = '';
+        document.getElementById('productImage').value = '';
+      }
+
+      function updateProductGrid() {
+        const productsGrid = document.getElementById('productsGrid');
+        productsGrid.innerHTML = products.map(product => `
+          <div class="product-card animate-on-scroll">
+            <div class="product-image">
+              <img src="${product.image}" alt="${product.name}" />
+            </div>
+            <h3>${product.name}</h3>
+            <p>${product.description}</p>
+          </div>
+        `).join('');
+      }
+
+      // Initialize
+      loadProducts();
     </script>
   </body>
 </html>
