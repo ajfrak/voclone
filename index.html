@@ -31,40 +31,35 @@
         color: #2c3e50;
       }
 
-      /* Enhanced Animations */
+      /* Standard Animations - More refined */
       @keyframes float {
-        0%, 100% { transform: translateY(0px) rotate(0deg); }
-        25% { transform: translateY(-15px) rotate(2deg); }
-        50% { transform: translateY(-25px) rotate(0deg); }
-        75% { transform: translateY(-10px) rotate(-2deg); }
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
       }
 
-      @keyframes morphing {
-        0%, 100% { border-radius: 50% 20% 30% 40%; }
-        25% { border-radius: 20% 50% 40% 30%; }
-        50% { border-radius: 30% 40% 50% 20%; }
-        75% { border-radius: 40% 30% 20% 50%; }
+      @keyframes gradientShift {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
       }
 
       @keyframes slideInFromLeft {
-        0% { transform: translateX(-100%) rotateY(-90deg); opacity: 0; }
-        100% { transform: translateX(0) rotateY(0deg); opacity: 1; }
+        0% { transform: translateX(-50px); opacity: 0; }
+        100% { transform: translateX(0); opacity: 1; }
       }
 
       @keyframes slideInFromRight {
-        0% { transform: translateX(100%) rotateY(90deg); opacity: 0; }
-        100% { transform: translateX(0) rotateY(0deg); opacity: 1; }
+        0% { transform: translateX(50px); opacity: 0; }
+        100% { transform: translateX(0); opacity: 1; }
       }
 
-      @keyframes zoomInRotate {
-        0% { transform: scale(0) rotate(-180deg); opacity: 0; }
-        50% { transform: scale(1.1) rotate(-90deg); opacity: 0.8; }
-        100% { transform: scale(1) rotate(0deg); opacity: 1; }
+      @keyframes fadeInUp {
+        0% { transform: translateY(30px); opacity: 0; }
+        100% { transform: translateY(0); opacity: 1; }
       }
 
-      @keyframes textGlow {
-        0%, 100% { text-shadow: 0 0 20px rgba(20, 184, 166, 0.5), 0 0 30px rgba(20, 184, 166, 0.3); }
-        50% { text-shadow: 0 0 40px rgba(20, 184, 166, 0.8), 0 0 60px rgba(20, 184, 166, 0.6); }
+      @keyframes shine {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(100%); }
       }
 
       /* Navigation */
@@ -76,14 +71,13 @@
         backdrop-filter: blur(20px);
         z-index: 1000;
         padding: 1rem 0;
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: all 0.3s ease;
         border-bottom: 1px solid rgba(20, 184, 166, 0.1);
       }
 
       .navbar.scrolled {
         background: rgba(248, 253, 255, 0.98);
-        box-shadow: 0 8px 32px rgba(20, 184, 166, 0.15);
-        transform: translateY(-5px);
+        box-shadow: 0 4px 20px rgba(20, 184, 166, 0.1);
       }
 
       .nav-container {
@@ -98,47 +92,18 @@
       .logo {
         display: flex;
         align-items: center;
-        gap: 1rem;
-        font-size: 1.8rem;
-        font-weight: 800;
-        color: #14b8a6;
-        animation: textGlow 3s ease-in-out infinite alternate;
         transition: all 0.3s ease;
       }
 
       .logo:hover {
-        transform: scale(1.1) rotate(5deg);
+        transform: scale(1.05);
       }
 
-      .logo-icon {
-        width: 50px;
-        height: 50px;
-        background: linear-gradient(135deg, #14b8a6, #06b6d4);
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.5rem;
-        color: white;
-        animation: morphing 4s ease-in-out infinite;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .logo-icon::before {
-        content: '';
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
-        animation: shine 2s linear infinite;
-      }
-
-      @keyframes shine {
-        0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-        100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+      .logo img {
+        height: 60px;
+        width: auto;
+        object-fit: contain;
+        transition: all 0.3s ease;
       }
 
       .nav-links {
@@ -151,7 +116,7 @@
         color: #2c3e50;
         text-decoration: none;
         font-weight: 600;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: all 0.3s ease;
         position: relative;
         padding: 0.5rem 1rem;
         border-radius: 25px;
@@ -168,7 +133,7 @@
         border-radius: 25px;
         opacity: 0;
         transform: scale(0.8);
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: all 0.3s ease;
         z-index: -1;
       }
 
@@ -202,29 +167,13 @@
         bottom: 0;
         background: url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1920&h=1080&fit=crop&crop=center') center/cover;
         filter: brightness(0.1) blur(1px);
-        z-index: -2;
-      }
-
-      .hero-particles {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
         z-index: -1;
-      }
-
-      .particle {
-        position: absolute;
-        background: linear-gradient(135deg, rgba(20, 184, 166, 0.3), rgba(6, 182, 212, 0.2));
-        border-radius: 50%;
-        animation: float 8s ease-in-out infinite;
       }
 
       .hero-content {
         text-align: center;
         max-width: 900px;
-        animation: zoomInRotate 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+        animation: fadeInUp 1s ease-out;
         position: relative;
       }
 
@@ -238,11 +187,6 @@
         -webkit-text-fill-color: transparent;
         animation: gradientShift 4s ease-in-out infinite;
         line-height: 1.2;
-      }
-
-      @keyframes gradientShift {
-        0%, 100% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
       }
 
       .hero p {
@@ -268,7 +212,7 @@
         font-size: 1.1rem;
         font-weight: 700;
         cursor: pointer;
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: all 0.3s ease;
         text-decoration: none;
         display: inline-block;
         position: relative;
@@ -297,8 +241,8 @@
         left: -100%;
         width: 100%;
         height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-        transition: left 0.6s ease;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+        transition: left 0.5s ease;
       }
 
       .btn:hover::before {
@@ -306,8 +250,8 @@
       }
 
       .btn:hover {
-        transform: translateY(-5px) scale(1.05);
-        box-shadow: 0 20px 40px rgba(20, 184, 166, 0.4);
+        transform: translateY(-3px) scale(1.02);
+        box-shadow: 0 15px 35px rgba(20, 184, 166, 0.4);
       }
 
       .btn-secondary:hover {
@@ -320,18 +264,6 @@
         padding: 6rem 0;
         background: linear-gradient(135deg, #ffffff 0%, #f0fdfa 100%);
         position: relative;
-      }
-
-      .services::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-image: radial-gradient(circle at 25% 25%, rgba(20, 184, 166, 0.05) 0%, transparent 50%),
-                          radial-gradient(circle at 75% 75%, rgba(6, 182, 212, 0.05) 0%, transparent 50%);
-        z-index: 0;
       }
 
       .container {
@@ -350,7 +282,6 @@
         background: linear-gradient(135deg, #14b8a6, #06b6d4);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        animation: textGlow 3s ease-in-out infinite alternate;
       }
 
       .services-grid {
@@ -365,8 +296,8 @@
         padding: 2.5rem;
         backdrop-filter: blur(20px);
         border: 1px solid rgba(20, 184, 166, 0.1);
-        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        animation: slideInFromLeft 0.8s ease-out;
+        transition: all 0.3s ease;
+        animation: fadeInUp 0.8s ease-out;
         position: relative;
         overflow: hidden;
       }
@@ -378,7 +309,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: linear-gradient(135deg, rgba(20, 184, 166, 0.1), rgba(6, 182, 212, 0.05));
+        background: linear-gradient(135deg, rgba(20, 184, 166, 0.05), rgba(6, 182, 212, 0.03));
         opacity: 0;
         transition: opacity 0.3s ease;
         z-index: -1;
@@ -389,8 +320,8 @@
       }
 
       .service-card:hover {
-        transform: translateY(-15px) rotateX(5deg);
-        box-shadow: 0 25px 50px rgba(20, 184, 166, 0.2);
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(20, 184, 166, 0.15);
       }
 
       .service-icon {
@@ -403,7 +334,6 @@
         justify-content: center;
         margin-bottom: 1.5rem;
         font-size: 2rem;
-        animation: morphing 3s ease-in-out infinite;
         position: relative;
         overflow: hidden;
       }
@@ -438,18 +368,6 @@
         position: relative;
       }
 
-      .products::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-image: radial-gradient(circle at 75% 25%, rgba(20, 184, 166, 0.08) 0%, transparent 50%),
-                          radial-gradient(circle at 25% 75%, rgba(6, 182, 212, 0.08) 0%, transparent 50%);
-        z-index: 0;
-      }
-
       .products-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -464,8 +382,8 @@
         text-align: center;
         backdrop-filter: blur(20px);
         border: 1px solid rgba(20, 184, 166, 0.15);
-        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        animation: zoomInRotate 0.8s ease-out;
+        transition: all 0.3s ease;
+        animation: fadeInUp 0.8s ease-out;
         position: relative;
         overflow: hidden;
       }
@@ -477,7 +395,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: linear-gradient(135deg, rgba(20, 184, 166, 0.1), rgba(6, 182, 212, 0.05));
+        background: linear-gradient(135deg, rgba(20, 184, 166, 0.05), rgba(6, 182, 212, 0.03));
         opacity: 0;
         transition: opacity 0.3s ease;
         z-index: -1;
@@ -488,8 +406,8 @@
       }
 
       .product-card:hover {
-        transform: scale(1.08) rotateY(5deg);
-        box-shadow: 0 20px 40px rgba(20, 184, 166, 0.25);
+        transform: scale(1.05);
+        box-shadow: 0 15px 30px rgba(20, 184, 166, 0.2);
       }
 
       .product-image {
@@ -499,7 +417,7 @@
         border-radius: 15px;
         overflow: hidden;
         position: relative;
-        box-shadow: 0 10px 30px rgba(20, 184, 166, 0.2);
+        box-shadow: 0 10px 30px rgba(20, 184, 166, 0.15);
         transition: all 0.3s ease;
       }
 
@@ -528,17 +446,6 @@
         position: relative;
       }
 
-      .features::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-image: radial-gradient(circle at 50% 50%, rgba(20, 184, 166, 0.03) 0%, transparent 70%);
-        z-index: 0;
-      }
-
       .features-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -552,7 +459,7 @@
         padding: 2.5rem;
         backdrop-filter: blur(20px);
         border: 1px solid rgba(20, 184, 166, 0.1);
-        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: all 0.3s ease;
         position: relative;
         overflow: hidden;
       }
@@ -575,8 +482,8 @@
       }
 
       .feature-card:hover {
-        transform: translateX(15px) rotateY(5deg);
-        box-shadow: 0 20px 40px rgba(20, 184, 166, 0.15);
+        transform: translateX(10px);
+        box-shadow: 0 15px 30px rgba(20, 184, 166, 0.15);
       }
 
       .feature-title {
@@ -596,18 +503,6 @@
         padding: 6rem 0;
         background: linear-gradient(135deg, #f0fdfa 0%, #e0f7fa 100%);
         position: relative;
-      }
-
-      .contact::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-image: radial-gradient(circle at 25% 75%, rgba(20, 184, 166, 0.1) 0%, transparent 50%),
-                          radial-gradient(circle at 75% 25%, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
-        z-index: 0;
       }
 
       .contact-content {
@@ -632,14 +527,14 @@
         padding: 2rem;
         background: rgba(255, 255, 255, 0.7);
         border-radius: 15px;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: all 0.3s ease;
         border: 1px solid rgba(20, 184, 166, 0.1);
       }
 
       .contact-item:hover {
         background: rgba(20, 184, 166, 0.05);
-        transform: translateY(-10px) scale(1.02);
-        box-shadow: 0 15px 30px rgba(20, 184, 166, 0.15);
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(20, 184, 166, 0.1);
       }
 
       .contact-item h3 {
@@ -670,10 +565,10 @@
         justify-content: center;
         font-size: 1.8rem;
         cursor: pointer;
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: all 0.3s ease;
         text-decoration: none;
         animation: float 3s ease-in-out infinite;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
       }
 
       .whatsapp-btn {
@@ -689,24 +584,24 @@
       }
 
       .floating-btn:hover {
-        transform: scale(1.15) rotate(10deg);
-        box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+        transform: scale(1.1);
+        box-shadow: 0 15px 35px rgba(37, 211, 102, 0.3);
       }
 
       .call-btn:hover {
-        box-shadow: 0 15px 40px rgba(20, 184, 166, 0.4);
+        box-shadow: 0 15px 35px rgba(20, 184, 166, 0.3);
       }
 
-      /* Enhanced Scroll animations */
+      /* Scroll animations */
       .animate-on-scroll {
         opacity: 0;
-        transform: translateY(50px) rotateX(10deg);
-        transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+        transform: translateY(30px);
+        transition: all 0.8s ease;
       }
 
       .animate-on-scroll.animated {
         opacity: 1;
-        transform: translateY(0) rotateX(0deg);
+        transform: translateY(0);
       }
 
       /* Mobile Responsive */
@@ -742,33 +637,10 @@
         .service-card, .product-card, .feature-card {
           padding: 2rem;
         }
-      }
 
-      /* Additional premium animations */
-      @keyframes ripple {
-        0% {
-          transform: scale(0);
-          opacity: 0.8;
+        .logo img {
+          height: 50px;
         }
-        100% {
-          transform: scale(4);
-          opacity: 0;
-        }
-      }
-
-      .btn:active::after {
-        content: '';
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        width: 5px;
-        height: 5px;
-        background: rgba(255, 255, 255, 0.5);
-        opacity: 0;
-        border-radius: 100%;
-        transform: scale(1, 1) translate(-50%);
-        transform-origin: 50% 50%;
-        animation: ripple 0.6s linear;
       }
     </style>
   </head>
@@ -778,10 +650,7 @@
     <nav class="navbar" id="navbar">
       <div class="nav-container">
         <div class="logo">
-          <div class="logo-icon">
-            <img src="/lovable-uploads/5a730de4-5005-4119-bd70-e50cdbf3e902.png" alt="Focus Logo" style="width: 40px; height: 40px; object-fit: contain;" />
-          </div>
-          FOCUS
+          <img src="/lovable-uploads/fa8a4441-620c-4554-bffb-52d04f43a344.png" alt="Focus Promotional Gifts" />
         </div>
         <ul class="nav-links">
           <li><a href="#home">Home</a></li>
@@ -795,10 +664,9 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-      <div class="hero-particles" id="particles"></div>
       <div class="hero-content">
         <h1>Transform Ideas Into Tangible Brand Experiences</h1>
-        <p>Premium promotional gifts and cutting-edge printing solutions with over 28 years of expertise in creating memorable brand impressions</p>
+        <p>Premium promotional gifts and cutting-edge printing solutions with over 28 years of expertise in creating memorable brand impressions across UAE</p>
         <div class="cta-buttons">
           <a href="#contact" class="btn btn-primary">Get Quote Now</a>
           <a href="#services" class="btn btn-secondary">Explore Services</a>
@@ -932,8 +800,8 @@
             <p>We understand the importance of deadlines. With our efficient production processes, we offer fast turnaround times without compromising on quality or attention to detail.</p>
           </div>
           <div class="feature-card animate-on-scroll">
-            <h3 class="feature-title">🌱 Eco-Friendly Practices</h3>
-            <p>We are committed to sustainability. Our eco-friendly printing practices and materials reflect our dedication to a greener planet while maintaining exceptional quality.</p>
+            <h3 class="feature-title">🚚 UAE-Wide Delivery</h3>
+            <p>Located in Ras Al Khaimah, we proudly serve all over UAE with reliable delivery services. From Dubai to Abu Dhabi, we ensure your orders reach you on time.</p>
           </div>
           <div class="feature-card animate-on-scroll">
             <h3 class="feature-title">🏆 Proven Track Record</h3>
@@ -951,16 +819,16 @@
           <p style="font-size: 1.2rem; color: #64748b; margin-bottom: 2rem;">Ready to transform your promotional ideas into reality? Contact our expert team today and let's create something amazing together!</p>
           <div class="contact-info">
             <div class="contact-item">
-              <h3>📞 Phone Numbers</h3>
-              <p style="font-weight: 600; color: #2c3e50;">050 - 828 68 84<br>055 - 135 32 02<br>052 - 788 29 40</p>
+              <h3>📞 Phone Number</h3>
+              <p style="font-weight: 600; color: #2c3e50;">+971 50 979 6809</p>
             </div>
             <div class="contact-item">
               <h3>📧 Email Address</h3>
-              <p style="font-weight: 600; color: #2c3e50;">focusgiftrak@gmail.com</p>
+              <p style="font-weight: 600; color: #2c3e50;">focusrakonline@gmail.com</p>
             </div>
             <div class="contact-item">
               <h3>📍 Location</h3>
-              <p style="font-weight: 600; color: #2c3e50;">Behind Dubai Islamic Bank<br>Al Nakheel - Ras Al Khaimah<br>United Arab Emirates</p>
+              <p style="font-weight: 600; color: #2c3e50;">Ras Al Khaimah<br>United Arab Emirates<br>Service All Over UAE</p>
             </div>
             <div class="contact-item">
               <h3>🕒 Business Hours</h3>
@@ -973,17 +841,17 @@
 
     <!-- Floating Buttons -->
     <div class="floating-buttons">
-      <a href="https://wa.me/971508286884" class="floating-btn whatsapp-btn" target="_blank" title="Chat on WhatsApp">
+      <a href="https://wa.me/971509796809" class="floating-btn whatsapp-btn" target="_blank" title="Chat on WhatsApp">
         💬
       </a>
-      <a href="tel:+971508286884" class="floating-btn call-btn" title="Call Us Now">
+      <a href="tel:+971509796809" class="floating-btn call-btn" title="Call Us Now">
         📞
       </a>
     </div>
 
     <script type="module" src="/src/main.tsx"></script>
     <script>
-      // Enhanced navbar scroll effect
+      // Navbar scroll effect
       window.addEventListener('scroll', () => {
         const navbar = document.getElementById('navbar');
         if (window.scrollY > 100) {
@@ -1007,10 +875,10 @@
         });
       });
 
-      // Enhanced scroll animations with stagger effect
+      // Scroll animations
       const observerOptions = {
         threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
+        rootMargin: '0px 0px -50px 0px'
       };
 
       const observer = new IntersectionObserver((entries) => {
@@ -1027,39 +895,9 @@
         observer.observe(el);
       });
 
-      // Create enhanced floating particles
-      function createParticles() {
-        const particlesContainer = document.getElementById('particles');
-        const particleCount = 80;
-
-        for (let i = 0; i < particleCount; i++) {
-          const particle = document.createElement('div');
-          particle.className = 'particle';
-          
-          const size = Math.random() * 6 + 3;
-          particle.style.width = size + 'px';
-          particle.style.height = size + 'px';
-          particle.style.left = Math.random() * 100 + '%';
-          particle.style.top = Math.random() * 100 + '%';
-          particle.style.animationDelay = Math.random() * 8 + 's';
-          particle.style.animationDuration = (Math.random() * 4 + 4) + 's';
-          
-          // Add different particle shapes
-          if (Math.random() > 0.5) {
-            particle.style.borderRadius = '0';
-            particle.style.transform = 'rotate(45deg)';
-          }
-          
-          particlesContainer.appendChild(particle);
-        }
-      }
-
-      // Initialize particles
-      createParticles();
-
-      // Add enhanced stagger animation delay to cards
+      // Add stagger animation delay to cards
       document.querySelectorAll('.service-card').forEach((card, index) => {
-        card.style.animationDelay = (index * 0.15) + 's';
+        card.style.animationDelay = (index * 0.1) + 's';
       });
 
       document.querySelectorAll('.product-card').forEach((card, index) => {
@@ -1067,70 +905,13 @@
       });
 
       document.querySelectorAll('.feature-card').forEach((card, index) => {
-        card.style.animationDelay = (index * 0.12) + 's';
+        card.style.animationDelay = (index * 0.1) + 's';
       });
 
-      // Enhanced parallax effect for hero section
-      window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        const parallax = document.querySelector('.hero::before');
-        const particles = document.getElementById('particles');
-        const speed = scrolled * 0.3;
-        
-        if (particles) {
-          particles.style.transform = `translateY(${speed}px)`;
-        }
-      });
-
-      // Add interactive hover effects
-      document.querySelectorAll('.btn, .service-card, .product-card, .feature-card').forEach(element => {
-        element.addEventListener('mouseenter', () => {
-          element.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
-        });
-      });
-
-      // Add click ripple effect to buttons
-      document.querySelectorAll('.btn').forEach(button => {
-        button.addEventListener('click', function(e) {
-          const ripple = document.createElement('span');
-          const rect = this.getBoundingClientRect();
-          const size = Math.max(rect.width, rect.height);
-          const x = e.clientX - rect.left - size / 2;
-          const y = e.clientY - rect.top - size / 2;
-          
-          ripple.style.width = ripple.style.height = size + 'px';
-          ripple.style.left = x + 'px';
-          ripple.style.top = y + 'px';
-          ripple.classList.add('ripple');
-          
-          this.appendChild(ripple);
-          
-          setTimeout(() => {
-            ripple.remove();
-          }, 600);
-        });
-      });
-
-      // Add loading animation
-      window.addEventListener('load', () => {
-        document.body.style.opacity = '0';
-        document.body.style.transition = 'opacity 0.5s ease';
-        setTimeout(() => {
-          document.body.style.opacity = '1';
-        }, 100);
-      });
-
-      // Enhanced floating button animations
+      // Floating button animations
       const floatingButtons = document.querySelectorAll('.floating-btn');
       floatingButtons.forEach((btn, index) => {
         btn.style.animationDelay = (index * 0.2) + 's';
-        
-        btn.addEventListener('mouseenter', () => {
-          btn.style.animation = 'none';
-          setTimeout(() => {
-            btn.style.animation = 'float 3s ease-in-out infinite';
-          }, 10);
-        });
       });
     </script>
   </body>
