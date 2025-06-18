@@ -1,24 +1,809 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>animated-modern-scape</title>
-    <meta name="description" content="Lovable Generated Project" />
-    <meta name="author" content="Lovable" />
+    <title>Focus Promotional Gifts - Premium Printing & Promotional Solutions</title>
+    <meta name="description" content="Professional promotional gifts and printing services in UAE. T-shirts, mugs, keychains, UV printing, laser engraving and more." />
+    <meta name="author" content="Focus Promotional Gifts" />
 
-    <meta property="og:title" content="animated-modern-scape" />
-    <meta property="og:description" content="Lovable Generated Project" />
+    <meta property="og:title" content="Focus Promotional Gifts - Premium Printing Solutions" />
+    <meta property="og:description" content="Professional promotional gifts and printing services in UAE" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/src/index.css">
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Manrope', sans-serif;
+        overflow-x: hidden;
+        background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%);
+        color: white;
+      }
+
+      /* Navigation */
+      .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px);
+        z-index: 1000;
+        padding: 1rem 0;
+        transition: all 0.3s ease;
+      }
+
+      .navbar.scrolled {
+        background: rgba(15, 15, 35, 0.95);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      }
+
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 2rem;
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 800;
+        background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: logoGlow 2s ease-in-out infinite alternate;
+      }
+
+      @keyframes logoGlow {
+        0% { filter: drop-shadow(0 0 5px rgba(255, 107, 107, 0.5)); }
+        100% { filter: drop-shadow(0 0 20px rgba(78, 205, 196, 0.8)); }
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+      }
+
+      .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .nav-links a::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+        transition: width 0.3s ease;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      /* Hero Section */
+      .hero {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1920&h=1080&fit=crop&crop=center') center/cover;
+        filter: brightness(0.3);
+        z-index: -2;
+      }
+
+      .hero-particles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+      }
+
+      .particle {
+        position: absolute;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-20px) rotate(180deg); }
+      }
+
+      .hero-content {
+        text-align: center;
+        max-width: 800px;
+        animation: heroSlideUp 1s ease-out;
+      }
+
+      @keyframes heroSlideUp {
+        0% {
+          opacity: 0;
+          transform: translateY(50px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .hero h1 {
+        font-size: clamp(2.5rem, 6vw, 4rem);
+        font-weight: 800;
+        margin-bottom: 1rem;
+        background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: textShimmer 3s ease-in-out infinite;
+      }
+
+      @keyframes textShimmer {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+      }
+
+      .hero p {
+        font-size: 1.3rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+        animation: fadeInDelay 1s ease-out 0.5s both;
+      }
+
+      @keyframes fadeInDelay {
+        0% { opacity: 0; transform: translateY(20px); }
+        100% { opacity: 0.9; transform: translateY(0); }
+      }
+
+      .cta-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        animation: fadeInDelay 1s ease-out 1s both;
+      }
+
+      .btn {
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 50px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .btn-primary {
+        background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+        color: white;
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: white;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+      }
+
+      .btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.5s ease;
+      }
+
+      .btn:hover::before {
+        left: 100%;
+      }
+
+      .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Services Section */
+      .services {
+        padding: 5rem 0;
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      .section-title {
+        text-align: center;
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 3rem;
+        background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+
+      .service-card {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 20px;
+        padding: 2rem;
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+        animation: fadeInUp 0.8s ease-out;
+      }
+
+      @keyframes fadeInUp {
+        0% {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .service-card:hover {
+        transform: translateY(-10px);
+        background: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      }
+
+      .service-icon {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+        animation: iconSpin 2s ease-in-out infinite;
+      }
+
+      @keyframes iconSpin {
+        0%, 100% { transform: rotate(0deg); }
+        50% { transform: rotate(5deg); }
+      }
+
+      .service-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: #4ecdc4;
+      }
+
+      /* Products Section */
+      .products {
+        padding: 5rem 0;
+        background: linear-gradient(135deg, #16213e 0%, #0f0f23 100%);
+      }
+
+      .products-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .product-card {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 15px;
+        padding: 1.5rem;
+        text-align: center;
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+        animation: scaleIn 0.8s ease-out;
+      }
+
+      @keyframes scaleIn {
+        0% {
+          opacity: 0;
+          transform: scale(0.8);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      .product-card:hover {
+        transform: scale(1.05);
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .product-emoji {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        animation: bounce 2s ease-in-out infinite;
+      }
+
+      @keyframes bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+      }
+
+      /* Features Section */
+      .features {
+        padding: 5rem 0;
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .feature-card {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 15px;
+        padding: 2rem;
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .feature-card:hover {
+        transform: translateX(10px);
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .feature-title {
+        color: #ff6b6b;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+
+      /* Contact Section */
+      .contact {
+        padding: 5rem 0;
+        background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%);
+      }
+
+      .contact-content {
+        text-align: center;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 20px;
+        padding: 3rem;
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .contact-info {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .contact-item {
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 10px;
+        transition: all 0.3s ease;
+      }
+
+      .contact-item:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateY(-5px);
+      }
+
+      /* Floating Buttons */
+      .floating-buttons {
+        position: fixed;
+        right: 2rem;
+        bottom: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        z-index: 1000;
+      }
+
+      .floating-btn {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        animation: pulse 2s ease-in-out infinite;
+      }
+
+      .whatsapp-btn {
+        background: #25d366;
+        color: white;
+      }
+
+      .call-btn {
+        background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+        color: white;
+      }
+
+      .floating-btn:hover {
+        transform: scale(1.1);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      @keyframes pulse {
+        0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+        50% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
+      }
+
+      /* Scroll animations */
+      .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease-out;
+      }
+
+      .animate-on-scroll.animated {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Mobile Responsive */
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+        
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+        
+        .section-title {
+          font-size: 2rem;
+        }
+        
+        .floating-buttons {
+          right: 1rem;
+          bottom: 1rem;
+        }
+        
+        .cta-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    </style>
   </head>
 
   <body>
-    <div id="root"></div>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <div class="logo">FOCUS</div>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="hero-particles" id="particles"></div>
+      <div class="hero-content">
+        <h1>Transform Ideas Into Tangible Brand Experiences</h1>
+        <p>Premium promotional gifts and cutting-edge printing solutions with over 28 years of expertise</p>
+        <div class="cta-buttons">
+          <a href="#contact" class="btn btn-primary">Get Quote</a>
+          <a href="#services" class="btn btn-secondary">Our Services</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+      <div class="container">
+        <h2 class="section-title animate-on-scroll">Our Services</h2>
+        <div class="services-grid">
+          <div class="service-card animate-on-scroll">
+            <div class="service-icon">🖨️</div>
+            <h3>Screen Printing</h3>
+            <p>High-quality screen printing for all your promotional materials with vibrant, long-lasting colors.</p>
+          </div>
+          <div class="service-card animate-on-scroll">
+            <div class="service-icon">⚡</div>
+            <h3>Laser Engraving</h3>
+            <p>Precision laser engraving services for professional and personalized promotional items.</p>
+          </div>
+          <div class="service-card animate-on-scroll">
+            <div class="service-icon">🌈</div>
+            <h3>UV Printing</h3>
+            <p>Advanced UV printing technology for exceptional quality and innovation in every project.</p>
+          </div>
+          <div class="service-card animate-on-scroll">
+            <div class="service-icon">🎨</div>
+            <h3>Heat Transfer</h3>
+            <p>Professional heat transfer printing for textiles and promotional merchandise.</p>
+          </div>
+          <div class="service-card animate-on-scroll">
+            <div class="service-icon">✨</div>
+            <h3>Sublimation</h3>
+            <p>High-quality sublimation printing for vibrant, fade-resistant promotional products.</p>
+          </div>
+          <div class="service-card animate-on-scroll">
+            <div class="service-icon">🏆</div>
+            <h3>Custom Design</h3>
+            <p>Creative design services to bring your promotional ideas to life with professional expertise.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+      <div class="container">
+        <h2 class="section-title animate-on-scroll">Our Products</h2>
+        <div class="products-grid">
+          <div class="product-card animate-on-scroll">
+            <div class="product-emoji">👕</div>
+            <h3>T-Shirts & Apparel</h3>
+          </div>
+          <div class="product-card animate-on-scroll">
+            <div class="product-emoji">☕</div>
+            <h3>Mugs & Drinkware</h3>
+          </div>
+          <div class="product-card animate-on-scroll">
+            <div class="product-emoji">🧢</div>
+            <h3>Caps & Headwear</h3>
+          </div>
+          <div class="product-card animate-on-scroll">
+            <div class="product-emoji">🔑</div>
+            <h3>Keychains</h3>
+          </div>
+          <div class="product-card animate-on-scroll">
+            <div class="product-emoji">✒️</div>
+            <h3>Pens & Stationery</h3>
+          </div>
+          <div class="product-card animate-on-scroll">
+            <div class="product-emoji">🏅</div>
+            <h3>Trophies & Awards</h3>
+          </div>
+          <div class="product-card animate-on-scroll">
+            <div class="product-emoji">💼</div>
+            <h3>Bags & Accessories</h3>
+          </div>
+          <div class="product-card animate-on-scroll">
+            <div class="product-emoji">📅</div>
+            <h3>Calendars</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+      <div class="container">
+        <h2 class="section-title animate-on-scroll">Why Choose Focus?</h2>
+        <div class="features-grid">
+          <div class="feature-card animate-on-scroll">
+            <h3 class="feature-title">Cutting-Edge Technology</h3>
+            <p>We harness the latest in printing technology, including DTF printing, UV printing, and digital printing, to ensure your branding needs are met with precision and innovation.</p>
+          </div>
+          <div class="feature-card animate-on-scroll">
+            <h3 class="feature-title">Tailored Solutions</h3>
+            <p>Our experienced team works closely with you to provide customized solutions that align with your unique requirements, whether it's for corporate gifting, branding, or promotional materials.</p>
+          </div>
+          <div class="feature-card animate-on-scroll">
+            <h3 class="feature-title">Quality Assurance</h3>
+            <p>Quality is at the core of everything we do. We maintain rigorous quality control processes to ensure every print and product meets our high standards.</p>
+          </div>
+          <div class="feature-card animate-on-scroll">
+            <h3 class="feature-title">Quick Turnaround</h3>
+            <p>We understand the importance of deadlines. With our efficient production processes, we offer fast turnaround times without compromising on quality.</p>
+          </div>
+          <div class="feature-card animate-on-scroll">
+            <h3 class="feature-title">Eco-Friendly Practices</h3>
+            <p>We are committed to sustainability. Our eco-friendly printing practices and materials reflect our dedication to a greener planet.</p>
+          </div>
+          <div class="feature-card animate-on-scroll">
+            <h3 class="feature-title">Proven Track Record</h3>
+            <p>With a roster of prestigious clients and a successful history in the industry, you can trust us to deliver exceptional results.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="contact-content animate-on-scroll">
+          <h2 class="section-title">Get In Touch</h2>
+          <p>Ready to transform your promotional ideas into reality? Contact us today!</p>
+          <div class="contact-info">
+            <div class="contact-item">
+              <h3>📞 Phone</h3>
+              <p>050 - 828 68 84<br>055 - 135 32 02<br>052- 788 29 40</p>
+            </div>
+            <div class="contact-item">
+              <h3>📧 Email</h3>
+              <p>focusgiftrak@gmail.com</p>
+            </div>
+            <div class="contact-item">
+              <h3>📍 Address</h3>
+              <p>Behind Dubai Islamic Bank<br>Al Nakheel - Ras Al Khaimah</p>
+            </div>
+            <div class="contact-item">
+              <h3>🕒 Hours</h3>
+              <p>Mon - Sat: 9AM - 7PM<br>Sunday: Closed</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Floating Buttons -->
+    <div class="floating-buttons">
+      <a href="https://wa.me/971508286884" class="floating-btn whatsapp-btn" target="_blank">
+        💬
+      </a>
+      <a href="tel:+971508286884" class="floating-btn call-btn">
+        📞
+      </a>
+    </div>
+
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      // Navbar scroll effect
+      window.addEventListener('scroll', () => {
+        const navbar = document.getElementById('navbar');
+        if (window.scrollY > 100) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      });
+
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+
+      // Scroll animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animated');
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.animate-on-scroll').forEach(el => {
+        observer.observe(el);
+      });
+
+      // Create floating particles
+      function createParticles() {
+        const particlesContainer = document.getElementById('particles');
+        const particleCount = 50;
+
+        for (let i = 0; i < particleCount; i++) {
+          const particle = document.createElement('div');
+          particle.className = 'particle';
+          
+          const size = Math.random() * 4 + 2;
+          particle.style.width = size + 'px';
+          particle.style.height = size + 'px';
+          particle.style.left = Math.random() * 100 + '%';
+          particle.style.top = Math.random() * 100 + '%';
+          particle.style.animationDelay = Math.random() * 6 + 's';
+          particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+          
+          particlesContainer.appendChild(particle);
+        }
+      }
+
+      // Initialize particles
+      createParticles();
+
+      // Add stagger animation delay to cards
+      document.querySelectorAll('.service-card').forEach((card, index) => {
+        card.style.animationDelay = (index * 0.1) + 's';
+      });
+
+      document.querySelectorAll('.product-card').forEach((card, index) => {
+        card.style.animationDelay = (index * 0.05) + 's';
+      });
+
+      document.querySelectorAll('.feature-card').forEach((card, index) => {
+        card.style.animationDelay = (index * 0.1) + 's';
+      });
+
+      // Parallax effect for hero section
+      window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const parallax = document.querySelector('.hero::before');
+        const speed = scrolled * 0.5;
+        
+        if (parallax) {
+          parallax.style.transform = `translateY(${speed}px)`;
+        }
+      });
+
+      // Add hover sound effect (optional)
+      document.querySelectorAll('.btn, .service-card, .product-card').forEach(element => {
+        element.addEventListener('mouseenter', () => {
+          // Add subtle scale animation
+          element.style.transform = element.style.transform + ' scale(1.02)';
+        });
+        
+        element.addEventListener('mouseleave', () => {
+          element.style.transform = element.style.transform.replace(' scale(1.02)', '');
+        });
+      });
+    </script>
   </body>
 </html>
