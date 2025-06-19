@@ -26,8 +26,116 @@
       body {
         font-family: 'Manrope', sans-serif;
         overflow-x: hidden;
+        transition: all 0.3s ease;
+      }
+
+      /* Dark Mode (Default) */
+      body.dark {
         background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
         color: #f8fafc;
+      }
+
+      /* Light Mode */
+      body.light {
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%);
+        color: #1e293b;
+      }
+
+      /* Theme Toggle */
+      .theme-toggle {
+        position: fixed;
+        top: 120px;
+        right: 2rem;
+        z-index: 1000;
+        background: linear-gradient(135deg, #3b82f6, #9333ea);
+        border: none;
+        border-radius: 50px;
+        padding: 0.8rem 1.5rem;
+        color: white;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+        animation: elegantFloat 3s ease-in-out infinite;
+      }
+
+      .theme-toggle:hover {
+        transform: translateY(-2px) scale(1.05);
+        box-shadow: 0 12px 35px rgba(59, 130, 246, 0.4);
+      }
+
+      /* Light Mode Adjustments */
+      body.light .navbar {
+        background: rgba(248, 250, 252, 0.95);
+        border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+      }
+
+      body.light .nav-links a {
+        color: #475569;
+      }
+
+      body.light .nav-links a:hover {
+        color: #3b82f6;
+      }
+
+      body.light .hero {
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%);
+      }
+
+      body.light .hero p {
+        color: #64748b;
+      }
+
+      body.light .clients {
+        background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+      }
+
+      body.light .services {
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+      }
+
+      body.light .products {
+        background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+      }
+
+      body.light .features {
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+      }
+
+      body.light .seo-section {
+        background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+      }
+
+      body.light .contact {
+        background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+      }
+
+      body.light .service-card,
+      body.light .product-card,
+      body.light .feature-card,
+      body.light .contact-content,
+      body.light .client-logo,
+      body.light .seo-card {
+        background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.1));
+        border: 1px solid rgba(59, 130, 246, 0.3);
+        color: #334155;
+      }
+
+      body.light .service-card h3,
+      body.light .product-card h3,
+      body.light .feature-card h3,
+      body.light .feature-title {
+        color: #1e293b;
+      }
+
+      body.light .service-card p,
+      body.light .product-card p,
+      body.light .feature-card p {
+        color: #475569;
+      }
+
+      body.light .client-logo span {
+        color: #1e293b;
       }
 
       /* Premium Animations */
@@ -308,42 +416,43 @@
       .clients-track {
         display: flex;
         width: 200%;
-        animation: clientScroll 30s linear infinite;
+        animation: clientScroll 40s linear infinite;
         gap: 3rem;
         align-items: center;
       }
 
       .client-logo {
-        min-width: 200px;
-        height: 120px;
-        background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.1));
-        border-radius: 20px;
+        min-width: 250px;
+        height: 140px;
+        background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(147, 51, 234, 0.15));
+        border-radius: 25px;
         display: flex;
         align-items: center;
         justify-content: center;
         backdrop-filter: blur(20px);
-        border: 1px solid rgba(59, 130, 246, 0.3);
+        border: 2px solid rgba(59, 130, 246, 0.3);
         transition: all 0.3s ease;
         position: relative;
         overflow: hidden;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
       }
 
       .client-logo:hover {
         transform: scale(1.05);
-        box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4);
+        box-shadow: 0 20px 50px rgba(59, 130, 246, 0.4);
         animation: premiumGlow 2s ease-in-out infinite;
       }
 
       .client-logo span {
         font-weight: 700;
         color: #e2e8f0;
-        font-size: 1.1rem;
+        font-size: 1.2rem;
         text-align: center;
-        padding: 1rem;
+        padding: 1.5rem;
         background: linear-gradient(135deg, #60a5fa, #a855f7);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
       }
 
       /* Services Section */
@@ -539,6 +648,52 @@
         color: #cbd5e1;
         line-height: 1.7;
         animation: slideInUp 0.5s ease-out 0.3s both;
+      }
+
+      /* SEO Section */
+      .seo-section {
+        padding: 6rem 0;
+        background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+        position: relative;
+      }
+
+      .seo-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2.5rem;
+        margin-top: 4rem;
+      }
+
+      .seo-card {
+        background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.1));
+        border-radius: 20px;
+        padding: 2.5rem;
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(59, 130, 246, 0.2);
+        transition: all 0.3s ease;
+        animation: scaleUp 0.8s ease-out;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      }
+
+      .seo-card:hover {
+        transform: scale(1.02);
+        animation: premiumGlow 2s ease-in-out infinite;
+      }
+
+      .seo-card h3 {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #e2e8f0;
+        margin-bottom: 1rem;
+        animation: slideInUp 0.5s ease-out 0.2s both;
+      }
+
+      .seo-card p {
+        color: #cbd5e1;
+        line-height: 1.6;
+        animation: slideInUp 0.5s ease-out 0.4s both;
       }
 
       /* Contact Section */
@@ -775,13 +930,6 @@
         animation-delay: 0.5s;
       }
 
-      .admin-btn-float {
-        background: linear-gradient(135deg, #6366f1, #8b5cf6);
-        color: white;
-        animation-delay: 1s;
-        font-size: 1.5rem;
-      }
-
       .floating-btn:hover {
         transform: scale(1.1);
         animation: premiumGlow 2s ease-in-out infinite;
@@ -842,14 +990,27 @@
         }
 
         .client-logo {
-          min-width: 150px;
-          height: 100px;
+          min-width: 200px;
+          height: 120px;
+        }
+
+        .theme-toggle {
+          right: 1rem;
+          top: 100px;
+          padding: 0.6rem 1.2rem;
+          font-size: 0.9rem;
         }
       }
     </style>
   </head>
 
-  <body>
+  <body class="dark">
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" onclick="toggleTheme()">
+      <span id="themeIcon">🌙</span>
+      <span id="themeText">Light Mode</span>
+    </button>
+
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
       <div class="nav-container">
@@ -861,6 +1022,7 @@
           <li><a href="#services">Services</a></li>
           <li><a href="#products">Products</a></li>
           <li><a href="#features">Features</a></li>
+          <li><a href="#seo">Business Info</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
@@ -1020,6 +1182,58 @@
       </div>
     </section>
 
+    <!-- SEO Business Information Section -->
+    <section class="seo-section" id="seo">
+      <div class="container">
+        <h2 class="section-title animate-on-scroll">Focus Promotional Gifts - Ras Al Khaimah's Premier Printing Company</h2>
+        <p style="text-align: center; font-size: 1.2rem; color: #cbd5e1; margin-bottom: 3rem; line-height: 1.6;">
+          Leading promotional gifts company in Ras Al Khaimah, UAE, specializing in corporate branding, custom printing services, promotional merchandise, and business gift solutions across all Emirates.
+        </p>
+        
+        <div class="seo-grid">
+          <div class="seo-card animate-on-scroll">
+            <h3>🏢 Ras Al Khaimah Business Hub</h3>
+            <p>Strategically located in Ras Al Khaimah, we serve businesses across UAE including Dubai, Abu Dhabi, Sharjah, Ajman, Fujairah, and Umm Al Quwain. Our printing company offers comprehensive promotional solutions for corporations, SMEs, schools, and government entities.</p>
+          </div>
+          
+          <div class="seo-card animate-on-scroll">
+            <h3>🎯 Corporate Promotional Services</h3>
+            <p>Specializing in corporate gifts, employee recognition awards, conference materials, trade show giveaways, and branded merchandise. We help businesses in Ras Al Khaimah and throughout UAE enhance their brand visibility with premium promotional products.</p>
+          </div>
+          
+          <div class="seo-card animate-on-scroll">
+            <h3>🖨️ Advanced Printing Technology</h3>
+            <p>Our state-of-the-art printing facility in Ras Al Khaimah features UV printing, screen printing, digital printing, laser engraving, heat transfer, and sublimation services. We deliver high-quality promotional materials for businesses across the UAE.</p>
+          </div>
+          
+          <div class="seo-card animate-on-scroll">
+            <h3>🏆 Industry Expertise & Experience</h3>
+            <p>With over 28 years of experience in the promotional gifts industry, Focus Promotional Gifts has established itself as Ras Al Khaimah's trusted partner for custom printing, corporate branding, and promotional merchandise solutions.</p>
+          </div>
+          
+          <div class="seo-card animate-on-scroll">
+            <h3>📦 Complete Product Range</h3>
+            <p>From custom t-shirts and promotional caps to branded mugs, corporate pens, keychains, trophies, calendars, and lanyards - we offer comprehensive promotional product solutions for businesses in Ras Al Khaimah and across UAE.</p>
+          </div>
+          
+          <div class="seo-card animate-on-scroll">
+            <h3>🚚 UAE-Wide Service Network</h3>
+            <p>Fast and reliable delivery services across all UAE Emirates. Whether you're in Dubai's business district, Abu Dhabi's corporate sector, or anywhere in the Northern Emirates, we ensure timely delivery of your promotional materials from our Ras Al Khaimah facility.</p>
+          </div>
+          
+          <div class="seo-card animate-on-scroll">
+            <h3>🎨 Custom Design & Branding</h3>
+            <p>Our creative design team in Ras Al Khaimah specializes in logo design, brand development, packaging design, and marketing materials. We help UAE businesses create memorable brand experiences through innovative promotional products.</p>
+          </div>
+          
+          <div class="seo-card animate-on-scroll">
+            <h3>🏫 Educational Institution Partnerships</h3>
+            <p>Trusted by leading schools and educational institutions in Ras Al Khaimah and UAE, including international schools, universities, and training centers. We provide branded uniforms, educational materials, graduation gifts, and school promotional items.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Contact Section -->
     <section class="contact" id="contact">
       <div class="container">
@@ -1113,13 +1327,51 @@
       <a href="tel:+971509796809" class="floating-btn call-btn" title="Call Us Now">
         📞
       </a>
-      <button class="floating-btn admin-btn-float" onclick="openAdmin()" title="Admin Panel">
-        ⚙️
-      </button>
     </div>
 
     <script type="module" src="/src/main.tsx"></script>
     <script>
+      // Theme Toggle Functionality
+      function toggleTheme() {
+        const body = document.body;
+        const themeIcon = document.getElementById('themeIcon');
+        const themeText = document.getElementById('themeText');
+        
+        if (body.classList.contains('dark')) {
+          body.classList.remove('dark');
+          body.classList.add('light');
+          themeIcon.textContent = '☀️';
+          themeText.textContent = 'Dark Mode';
+          localStorage.setItem('theme', 'light');
+        } else {
+          body.classList.remove('light');
+          body.classList.add('dark');
+          themeIcon.textContent = '🌙';
+          themeText.textContent = 'Light Mode';
+          localStorage.setItem('theme', 'dark');
+        }
+      }
+
+      // Load saved theme
+      document.addEventListener('DOMContentLoaded', function() {
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        const body = document.body;
+        const themeIcon = document.getElementById('themeIcon');
+        const themeText = document.getElementById('themeText');
+        
+        if (savedTheme === 'light') {
+          body.classList.remove('dark');
+          body.classList.add('light');
+          themeIcon.textContent = '☀️';
+          themeText.textContent = 'Dark Mode';
+        } else {
+          body.classList.remove('light');
+          body.classList.add('dark');
+          themeIcon.textContent = '🌙';
+          themeText.textContent = 'Light Mode';
+        }
+      });
+
       // Navbar scroll effect
       window.addEventListener('scroll', () => {
         const navbar = document.getElementById('navbar');
@@ -1464,7 +1716,7 @@
           <div class="client-logo">
             ${client.image ? 
               `<img src="${client.image}" alt="${client.name}" />` : 
-              `<span style="font-weight: 700; color: #14b8a6;">${client.name}</span>`
+              `<span>${client.name}</span>`
             }
           </div>
         `).join('');
