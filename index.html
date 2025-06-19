@@ -1063,6 +1063,13 @@
             <h3>Calendars & Planners</h3>
             <p>Custom calendars for year-round brand exposure</p>
           </div>
+          <div class="product-card animate-on-scroll">
+            <div class="product-image">
+              <img src="/lovable-uploads/c8cd9db0-7335-4f48-a80e-85fd43e0575c.png" alt="Lanyards" />
+            </div>
+            <h3>Lanyards</h3>
+            <p>Custom printed lanyards for events and branding</p>
+          </div>
         </div>
       </div>
     </section>
@@ -1296,16 +1303,25 @@
           name: "Calendars & Planners",
           description: "Custom calendars for year-round brand exposure",
           image: "/lovable-uploads/6ec7f70d-b1f9-4965-b3ab-1b0f1522cc3f.png"
+        },
+        {
+          name: "Lanyards",
+          description: "Custom printed lanyards for events and branding",
+          image: "/lovable-uploads/c8cd9db0-7335-4f48-a80e-85fd43e0575c.png"
         }
       ];
 
       let clients = [
-        { name: "Client 1", image: "" },
-        { name: "Client 2", image: "" },
-        { name: "Client 3", image: "" },
-        { name: "Client 4", image: "" },
-        { name: "Client 5", image: "" },
-        { name: "Client 6", image: "" }
+        { name: "Mars Engineering", image: "" },
+        { name: "ES Global", image: "" },
+        { name: "SAS Power", image: "" },
+        { name: "MEPCO Electro Mechanical", image: "" },
+        { name: "Power Way Smart Switchgear Solutions", image: "" },
+        { name: "Al Baz", image: "" },
+        { name: "Black Stone", image: "" },
+        { name: "Ideal English Medium School", image: "" },
+        { name: "Indian School", image: "" },
+        { name: "Ras Al Khaimah American Academy", image: "" }
       ];
 
       function openAdmin() {
@@ -1362,10 +1378,10 @@
         const clientList = document.getElementById('clientList');
         clientList.innerHTML = clients.map((client, index) => `
           <div class="client-admin-card">
-            ${client.image ? `<img src="${client.image}" alt="${client.name}" />` : '<div style="width: 80px; height: 80px; background: #f0f0f0; border-radius: 8px; margin: 0 auto 0.5rem; display: flex; align-items: center; justify-content: center; color: #999;">No Image</div>'}
-            <h4>${client.name}</h4>
-            <button class="admin-btn" onclick="editClient(${index})">Edit</button>
-            <button class="admin-btn" onclick="deleteClient(${index})" style="background: #ef4444;">Delete</button>
+            ${client.image ? 
+              `<img src="${client.image}" alt="${client.name}" />` : 
+              `<span style="font-weight: 700; color: #14b8a6;">${client.name}</span>`
+            }
           </div>
         `).join('');
         updateClientsSlider();
