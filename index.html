@@ -121,6 +121,33 @@
         color: #e5e7eb;
       }
 
+      /* Floating Theme Toggle Button */
+      .floating-theme-toggle {
+        position: fixed;
+        left: 2rem;
+        bottom: 10rem;
+        z-index: 1000;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #3b82f6, #9333ea);
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        animation: elegantFloat 3s ease-in-out infinite;
+        animation-delay: 1s;
+      }
+
+      .floating-theme-toggle:hover {
+        transform: scale(1.1);
+        animation: premiumGlow 2s ease-in-out infinite;
+      }
+
       /* Mobile adjustments for toggle */
       @media (max-width: 768px) {
         .theme-toggle {
@@ -146,6 +173,14 @@
 
         .toggle-text {
           font-size: 10px;
+        }
+
+        .floating-theme-toggle {
+          left: 1rem;
+          bottom: 8rem;
+          width: 55px;
+          height: 55px;
+          font-size: 1.3rem;
         }
       }
 
@@ -474,9 +509,9 @@
       }
 
       .btn-primary {
-        background: linear-gradient(135deg, #3b82f6, #9333ea);
+        background: #21b6b9;
         color: white;
-        box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+        box-shadow: 0 10px 30px rgba(33, 182, 185, 0.4);
         animation-delay: 0s;
       }
 
@@ -491,6 +526,10 @@
       .btn:hover {
         transform: translateY(-3px) scale(1.02);
         animation: premiumGlow 2s ease-in-out infinite;
+      }
+
+      .btn-primary:hover {
+        background: #1da1a4;
       }
 
       .btn-secondary:hover {
@@ -1278,6 +1317,13 @@
         <div class="products-grid" id="productsGrid">
           <div class="product-card animate-on-scroll">
             <div class="product-image">
+              <img src="/lovable-uploads/t-shirt.png" alt="T-Shirts" />
+            </div>
+            <h3>T-Shirts</h3>
+            <p>Custom printed t-shirts for corporate branding</p>
+          </div>
+          <div class="product-card animate-on-scroll">
+            <div class="product-image">
               <img src="/lovable-uploads/4389d245-9d59-4d19-bbb8-023b366e4384.png" alt="Caps & Headwear" />
             </div>
             <h3>Caps & Headwear</h3>
@@ -1285,17 +1331,17 @@
           </div>
           <div class="product-card animate-on-scroll">
             <div class="product-image">
-              <img src="/lovable-uploads/90eaa6f8-3cfe-4410-b7f0-e295880e73cc.png" alt="Mugs & Drinkware" />
+              <img src="/lovable-uploads/graduation-gown.png" alt="Graduation Gowns" />
             </div>
-            <h3>Mugs & Drinkware</h3>
-            <p>Custom printed mugs for daily use</p>
+            <h3>Graduation Gowns</h3>
+            <p>Professional graduation gowns and accessories</p>
           </div>
           <div class="product-card animate-on-scroll">
             <div class="product-image">
-              <img src="/lovable-uploads/0b6413e8-a74e-4286-b95e-e0f78aea2f72.png" alt="Pens & Stationery" />
+              <img src="/lovable-uploads/c8cd9db0-7335-4f48-a80e-85fd43e0575c.png" alt="Lanyards" />
             </div>
-            <h3>Pens & Stationery</h3>
-            <p>High-quality writing instruments for professionals</p>
+            <h3>Lanyards</h3>
+            <p>Custom printed lanyards for events and branding</p>
           </div>
           <div class="product-card animate-on-scroll">
             <div class="product-image">
@@ -1306,10 +1352,24 @@
           </div>
           <div class="product-card animate-on-scroll">
             <div class="product-image">
+              <img src="/lovable-uploads/90eaa6f8-3cfe-4410-b7f0-e295880e73cc.png" alt="Mugs & Drinkware" />
+            </div>
+            <h3>Mugs & Drinkware</h3>
+            <p>Custom printed mugs for daily use</p>
+          </div>
+          <div class="product-card animate-on-scroll">
+            <div class="product-image">
               <img src="/lovable-uploads/dfa09b8c-3d30-4960-b876-9e93395c6ae7.png" alt="Trophies & Awards" />
             </div>
             <h3>Trophies & Awards</h3>
             <p>Prestigious awards for recognition and achievements</p>
+          </div>
+          <div class="product-card animate-on-scroll">
+            <div class="product-image">
+              <img src="/lovable-uploads/diary.png" alt="Diaries" />
+            </div>
+            <h3>Diaries</h3>
+            <p>Custom diaries and notebooks for professionals</p>
           </div>
           <div class="product-card animate-on-scroll">
             <div class="product-image">
@@ -1320,10 +1380,24 @@
           </div>
           <div class="product-card animate-on-scroll">
             <div class="product-image">
-              <img src="/lovable-uploads/c8cd9db0-7335-4f48-a80e-85fd43e0575c.png" alt="Lanyards" />
+              <img src="/lovable-uploads/paper-bag.png" alt="Paper Bags" />
             </div>
-            <h3>Lanyards</h3>
-            <p>Custom printed lanyards for events and branding</p>
+            <h3>Paper Bags</h3>
+            <p>Eco-friendly custom printed paper bags</p>
+          </div>
+          <div class="product-card animate-on-scroll">
+            <div class="product-image">
+              <img src="/lovable-uploads/safety-jacket.png" alt="Safety Jackets" />
+            </div>
+            <h3>Safety Jackets</h3>
+            <p>High-visibility safety jackets with custom branding</p>
+          </div>
+          <div class="product-card animate-on-scroll">
+            <div class="product-image">
+              <img src="/lovable-uploads/mouse-pad.png" alt="Mouse Pads" />
+            </div>
+            <h3>Mouse Pads</h3>
+            <p>Custom printed mouse pads for office use</p>
           </div>
         </div>
       </div>
@@ -1502,6 +1576,9 @@
 
     <!-- Floating Buttons -->
     <div class="floating-buttons">
+      <button class="floating-theme-toggle" onclick="toggleTheme()" id="floatingThemeBtn">
+        <span id="themeIcon">☀️</span>
+      </button>
       <a href="https://wa.me/971509796809" class="floating-btn whatsapp-btn" target="_blank" title="Chat on WhatsApp">
         💬
       </a>
@@ -1516,16 +1593,19 @@
       function toggleTheme() {
         const body = document.body;
         const themeText = document.getElementById('themeText');
+        const themeIcon = document.getElementById('themeIcon');
         
         if (body.classList.contains('dark')) {
           body.classList.remove('dark');
           body.classList.add('light');
           themeText.textContent = 'Dark';
+          themeIcon.textContent = '🌙';
           localStorage.setItem('theme', 'light');
         } else {
           body.classList.remove('light');
           body.classList.add('dark');
           themeText.textContent = 'Light';
+          themeIcon.textContent = '☀️';
           localStorage.setItem('theme', 'dark');
         }
       }
@@ -1535,15 +1615,18 @@
         const savedTheme = localStorage.getItem('theme') || 'dark';
         const body = document.body;
         const themeText = document.getElementById('themeText');
+        const themeIcon = document.getElementById('themeIcon');
         
         if (savedTheme === 'light') {
           body.classList.remove('dark');
           body.classList.add('light');
           themeText.textContent = 'Dark';
+          themeIcon.textContent = '🌙';
         } else {
           body.classList.remove('light');
           body.classList.add('dark');
           themeText.textContent = 'Light';
+          themeIcon.textContent = '☀️';
         }
       });
 
@@ -1615,19 +1698,24 @@
       let currentEditingClientIndex = -1;
       let products = [
         {
+          name: "T-Shirts",
+          description: "Custom printed t-shirts for corporate branding",
+          image: "/lovable-uploads/t-shirt.png"
+        },
+        {
           name: "Caps & Headwear",
           description: "Premium quality caps for corporate branding",
           image: "/lovable-uploads/4389d245-9d59-4d19-bbb8-023b366e4384.png"
         },
         {
-          name: "Mugs & Drinkware", 
-          description: "Custom printed mugs for daily use",
-          image: "/lovable-uploads/90eaa6f8-3cfe-4410-b7f0-e295880e73cc.png"
+          name: "Graduation Gowns",
+          description: "Professional graduation gowns and accessories",
+          image: "/lovable-uploads/graduation-gown.png"
         },
         {
-          name: "Pens & Stationery",
-          description: "High-quality writing instruments for professionals", 
-          image: "/lovable-uploads/0b6413e8-a74e-4286-b95e-e0f78aea2f72.png"
+          name: "Lanyards",
+          description: "Custom printed lanyards for events and branding",
+          image: "/lovable-uploads/c8cd9db0-7335-4f48-a80e-85fd43e0575c.png"
         },
         {
           name: "Keychains",
@@ -1635,9 +1723,19 @@
           image: "/lovable-uploads/7baf62bd-ff6d-4f73-9e27-15a8524dedbf.png"
         },
         {
+          name: "Mugs & Drinkware", 
+          description: "Custom printed mugs for daily use",
+          image: "/lovable-uploads/90eaa6f8-3cfe-4410-b7f0-e295880e73cc.png"
+        },
+        {
           name: "Trophies & Awards",
           description: "Prestigious awards for recognition and achievements",
           image: "/lovable-uploads/dfa09b8c-3d30-4960-b876-9e93395c6ae7.png"
+        },
+        {
+          name: "Diaries",
+          description: "Custom diaries and notebooks for professionals",
+          image: "/lovable-uploads/diary.png"
         },
         {
           name: "Calendars & Planners",
@@ -1645,9 +1743,19 @@
           image: "/lovable-uploads/6ec7f70d-b1f9-4965-b3ab-1b0f1522cc3f.png"
         },
         {
-          name: "Lanyards",
-          description: "Custom printed lanyards for events and branding",
-          image: "/lovable-uploads/c8cd9db0-7335-4f48-a80e-85fd43e0575c.png"
+          name: "Paper Bags",
+          description: "Eco-friendly custom printed paper bags",
+          image: "/lovable-uploads/paper-bag.png"
+        },
+        {
+          name: "Safety Jackets",
+          description: "High-visibility safety jackets with custom branding",
+          image: "/lovable-uploads/safety-jacket.png"
+        },
+        {
+          name: "Mouse Pads",
+          description: "Custom printed mouse pads for office use",
+          image: "/lovable-uploads/mouse-pad.png"
         }
       ];
 
